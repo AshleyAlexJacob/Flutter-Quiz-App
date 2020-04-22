@@ -52,20 +52,21 @@ class _QuizPageState extends State<QuizPage> {
         Alert(context: context, title: "Quiz Finished", desc: "We are Restarting").show();
         score_keeper.clear();
       }
-      if (z == 1) {
+      else if (z == 1) {
         score_keeper.add(
           Icon(Icons.check, color: Colors.green),
         );
-      } else
+        quizbrain.nextQuestion();
+      } else {
         score_keeper.add(
           Icon(
             Icons.close,
             color: mainColor,
           ),
         );
-      quizbrain.nextQuestion();
+        quizbrain.nextQuestion();
 
-
+      }
     });
   }
 
@@ -79,7 +80,7 @@ class _QuizPageState extends State<QuizPage> {
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: <Widget>[
         Expanded(
-          flex: 6,
+          flex: 5,
           child: Padding(
             padding: EdgeInsets.all(8.0),
             child: Center(
